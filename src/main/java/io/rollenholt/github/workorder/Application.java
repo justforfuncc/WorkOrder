@@ -1,6 +1,5 @@
 package io.rollenholt.github.workorder;
 
-import io.rollenholt.github.workorder.controller.WorkOrderController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -19,6 +18,6 @@ public class Application extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkOrderController.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

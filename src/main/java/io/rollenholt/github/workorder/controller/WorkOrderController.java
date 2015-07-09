@@ -2,10 +2,18 @@ package io.rollenholt.github.workorder.controller;
 
 import com.rollenholt.pear.pojo.JsonV2;
 import io.rollenholt.github.workorder.pojo.vo.WorkOrderVo;
+import io.rollenholt.github.workorder.service.WorkOrderService;
+import io.rollenholt.github.workorder.validation.WorkOrderVoValidator;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
 
 /**
  * rollenholt
@@ -13,19 +21,31 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping(value = "workorder")
-@EnableAutoConfiguration
 public class WorkOrderController {
+
+    @Resource
+    private WorkOrderService workOrderService;
+
+
+    @Value("${application.message:Hello World}")
+    private String message = "Hello World";
+
+    @InitBinder
+    private void initBinder(WebDataBinder binder) {
+        binder.setValidator(new WorkOrderVoValidator());
+    }
+
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public JsonV2 create(@RequestBody WorkOrderVo workOrderVo){
+    public JsonV2 create(@RequestBody @Validated WorkOrderVo workOrderVo, BindingResult validateResult){
 
         return new JsonV2<String>(0, "ok", null);
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     @ResponseBody
-    public JsonV2 modify(@RequestBody WorkOrderVo workOrderVo){
+    public JsonV2 modify(@RequestBody @Validated WorkOrderVo workOrderVo, BindingResult validateResult){
 
         return new JsonV2<String>(0, "ok", null);
     }
@@ -41,10 +61,14 @@ public class WorkOrderController {
 
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    @ResponseBody
-    public JsonV2 test(){
-        return new JsonV2<String>(0, "ok", null);
+    public String test(){
+        System.out.println("asdsad");
+        return "workOrder";
     }
 
+    @RequestMapping(value = "/test1", method = RequestMethod.GET)
+    public ModelAndView test1(){
+        return new ModelAndView("workOrder");
+    }
 
 }
