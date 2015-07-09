@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -64,11 +63,6 @@ public class WorkOrderController {
     public String test(){
         System.out.println("asdsad");
         return "workOrder";
-    }
-
-    @RequestMapping(value = "/test1", method = RequestMethod.GET)
-    public ModelAndView test1(){
-        return new ModelAndView("workOrder");
     }
 
 }
