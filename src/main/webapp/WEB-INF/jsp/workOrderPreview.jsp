@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -40,17 +42,17 @@
 
 <div class="container">
     <div class="starter-template">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/workorder/create" method="post">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" placeholder="workOrder name">
+                    <input type="text" class="form-control" id="name" name="name" value="<c:out value='${workOrderVo.name}'/>" readonly="true">
                 </div>
             </div>
             <div class="form-group">
                 <label for="priority" class="col-sm-2 control-label">Priority</label>
                 <div class="col-sm-10">
-                    <select class="form-control" id="priority">
+                    <select class="form-control" id="priority" name="priority" readonly="true">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -62,7 +64,7 @@
             <div class="form-group">
                 <label for="detail" class="col-sm-2 control-label">Detail</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="5" placeholder="workOrder detail" id="detail"></textarea>
+                    <textarea class="form-control" rows="5" id="detail" name="detail" value="${workOrderVo.detail}" readonly="true"></textarea>
                 </div>
             </div>
 

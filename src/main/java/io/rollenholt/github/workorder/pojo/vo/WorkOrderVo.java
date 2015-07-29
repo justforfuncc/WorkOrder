@@ -1,10 +1,6 @@
 package io.rollenholt.github.workorder.pojo.vo;
 
-import io.rollenholt.github.workorder.pojo.model.WorkOrderProperties;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * rollenholt
@@ -16,11 +12,9 @@ public class WorkOrderVo {
 
     private String name;
 
-    private Date createTime;
+    private int priority;
 
-    private String lastUpdateTime;
-
-    private List<WorkOrderProperties> workOrderProperties;
+    private String detail;
 
     public int getId() {
         return id;
@@ -38,28 +32,20 @@ public class WorkOrderVo {
         this.name = name;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
-    public String getLastUpdateTime() {
-        return lastUpdateTime;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setLastUpdateTime(String lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
-
-    public List<WorkOrderProperties> getWorkOrderProperties() {
-        return workOrderProperties;
-    }
-
-    public void setWorkOrderProperties(List<WorkOrderProperties> workOrderProperties) {
-        this.workOrderProperties = workOrderProperties;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     @Override

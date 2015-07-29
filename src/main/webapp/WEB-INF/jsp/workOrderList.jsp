@@ -26,13 +26,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">WorkOrder</a>
+            <a class="navbar-brand" href="/">WorkOrder</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
                 <li class="active"><a href="/workorder/list">workOrderList</a></li>
-                <li class="active"><a href="/workorder/create">create</a></li>
+                <li class="active"><a href="/workorder/create">Create</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -53,12 +52,12 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>1</td>
                     <td>asd</td>
                     <td>asd</td>
                     <td>asd</td>
                     <td>asd</td>
-                    <td>asd</td>
-                    <td><a href="#">asd</a></td>
+                    <td><a href="/workorder/toProviewPage">asd</a></td>
                 </tr>
             </tbody>
         </table>
