@@ -4,7 +4,6 @@ import com.rollenholt.pear.pojo.JsonV2;
 import io.rollenholt.github.workorder.pojo.vo.WorkOrderVo;
 import io.rollenholt.github.workorder.service.WorkOrderService;
 import io.rollenholt.github.workorder.validation.WorkOrderVoValidator;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -25,13 +24,14 @@ public class WorkOrderController {
     @Resource
     private WorkOrderService workOrderService;
 
-
-    @Value("${application.message:Hello World}")
-    private String message = "Hello World";
-
     @InitBinder
     private void initBinder(WebDataBinder binder) {
         binder.setValidator(new WorkOrderVoValidator());
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    public ModelAndView toCreatePage(){
+        return new ModelAndView("workOrderCreate");
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)

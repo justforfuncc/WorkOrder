@@ -40,28 +40,38 @@
 
 <div class="container">
     <div class="starter-template">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th style="text-align: center">ID</th>
-                    <th style="text-align: center">Name</th>
-                    <th style="text-align: center">CreateTime</th>
-                    <th style="text-align: center">Creator</th>
-                    <th style="text-align: center">Status</th>
-                    <th style="text-align: center">Detail</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><a href="#">asd</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" placeholder="workOrder name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="priority" class="col-sm-2 control-label">Priority</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="priority">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="detail" class="col-sm-2 control-label">Detail</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="5" placeholder="workOrder detail" id="detail"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 </div><!-- /.container -->
