@@ -13,4 +13,4 @@ Up to now the project is still in its infancy stage, So features are also very s
 If you have any good suggestions about this project, Please feel free to contact me. My contact details are as follows:
 
 - **Email**: renwenchao888@gmail.com
-- *twitter*: [https://twitter.com/rollenholt](https://twitter.com/rollenholt)
+- **twitter**: [https://twitter.com/rollenholt](https://twitter.com/rollenholt)
