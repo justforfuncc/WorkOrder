@@ -62,11 +62,7 @@ public class WorkOrderController {
     @RequestMapping(value = "/detail/{workOrderId}", method = RequestMethod.GET)
     @ResponseBody
     public JsonV2 queryWorkOderDetailById(@PathVariable("workOrderId") int workOrderId){
-        WorkOrderVo workOrderVo = new WorkOrderVo();
-        workOrderVo.setId(1);
-        workOrderVo.setName("xxx");
-        workOrderVo.setPriority(2);
-        workOrderVo.setDetail("xxxx");
+        WorkOrderVo workOrderVo = workOrderService.queryWorkOderById(workOrderId);
         return new JsonV2<Object>(0, "ok", workOrderVo);
     }
 
@@ -76,8 +72,7 @@ public class WorkOrderController {
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView toListPage(@RequestParam(value = "limit", required = false) Integer limit,
-                                 @RequestParam(value = "offset", required = false) Integer offset){
+    public ModelAndView toListPage(){
         return new ModelAndView("workOrderList");
     }
 
@@ -85,12 +80,8 @@ public class WorkOrderController {
     @ResponseBody
     public JsonV2 queryAllData(@RequestParam(value = "limit", required = false) Integer limit,
                                  @RequestParam(value = "offset", required = false) Integer offset){
-        WorkOrderVo workOrderVo = new WorkOrderVo();
-        workOrderVo.setId(1);
-        workOrderVo.setName("xxx");
-        workOrderVo.setPriority(1);
-        workOrderVo.setDetail("xxxx");
-        return new JsonV2<Object>(0, "ok", workOrderVo);
+        List<WorkOrderVo> workOrderVos = workOrderService.queryAllData(limit, offset);
+        return new JsonV2<Object>(0, "ok", workOrderVos);
     }
 
 }

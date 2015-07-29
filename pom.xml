@@ -25,22 +25,6 @@
             </dependency>
 
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>5.1.35</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>3.3.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>1.2.3</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.4</version>
@@ -64,20 +48,6 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>io.github.rollenholt</groupId>
             <artifactId>Pear</artifactId>
@@ -87,6 +57,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
 
     </dependencies>
 

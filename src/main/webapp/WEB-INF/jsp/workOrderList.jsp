@@ -24,9 +24,12 @@
             dataType : "json",
             url : "/workorder/list/data",
             success : function(data){
-                console.log(data)
-                $("tbody").append("<tr><td>" + data.data.id +  "</td><td>" + data.data.name + "</td><td>"
-                        + data.data.priority + "</td><td><a href=" + "/workorder/preview/" + data.data.id + ">preview</a></td></tr>")
+                var workorders = data.data;
+                for(var i = 0; i< workorders.length; i++){
+                    var data = workorders[i];
+                    $("tbody").append("<tr><td>" + data.id +  "</td><td>" + data.name + "</td><td>"
+                            + data.priority + "</td><td><a href=" + "/workorder/preview/" + data.id + ">preview</a></td></tr>")
+                }
             },
             error : function () {
                 alert("request workorder list data error! please contact system admin")
