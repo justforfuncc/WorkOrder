@@ -14,6 +14,8 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../css/template.css" rel="stylesheet">
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -48,7 +50,5 @@
 </div><!-- /.container -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../js/bootstrap.js"></script>
 </body>
 </html>
