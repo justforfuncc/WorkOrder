@@ -13,6 +13,28 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../css/template.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+
+    <script>
+
+        function formSubmit(){
+            $.ajax({
+                type : "post",
+                cache : false,
+                url : "/workorder/create",
+                data : $("#workOrderFrom").serialize(),
+                async : false,
+                error : function (request) {
+                    alert("form submit error, please retry or contact system admin.")
+                },
+                success : function(data) {
+                    console.log("xxx");
+                    window.location.href = "/workorder/list";
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -26,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">WorkOrder</a>
+            <a class="navbar-brand" href="/">WorkOrder</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -40,7 +62,7 @@
 
 <div class="container">
     <div class="starter-template">
-        <form class="form-horizontal">
+        <form class="form-horizontal" id="workOrderFrom">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
@@ -68,7 +90,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="formSubmit()">Submit</button>
                 </div>
             </div>
         </form>
@@ -77,7 +99,6 @@
 </div><!-- /.container -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../js/bootstrap.js"></script>
+
 </body>
 </html>
