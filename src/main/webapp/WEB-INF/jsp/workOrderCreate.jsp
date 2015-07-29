@@ -24,13 +24,16 @@
                 cache : false,
                 url : "/workorder/create",
                 data : $("#workOrderFrom").serialize(),
-                async : false,
                 error : function (request) {
                     alert("form submit error, please retry or contact system admin.")
                 },
                 success : function(data) {
-                    console.log("xxx");
-                    window.location.href = "/workorder/list";
+                    console.log(data);
+                    if(data.code == 0){
+                        window.location.href = "/workorder/list";
+                    } else {
+                        alert(data.msg + "\n" + data.data);
+                    }
                 }
             })
         }

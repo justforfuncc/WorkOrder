@@ -39,7 +39,7 @@ public class WorkOrderController {
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView toCreatePage(){
-        return new ModelAndView("workOrderCreateAndModify");
+        return new ModelAndView("workOrderCreate");
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
