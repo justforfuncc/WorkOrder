@@ -1,5 +1,6 @@
 package io.rollenholt.github.workorder.service;
 
+import io.rollenholt.github.workorder.pojo.vo.WorkOrderVo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class WorkOrderService {
+    public int create(WorkOrderVo workOrderVo) {
+        return 0;
+    }
 }
