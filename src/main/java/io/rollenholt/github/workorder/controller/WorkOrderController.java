@@ -57,19 +57,32 @@ public class WorkOrderController {
         return new ModelAndView("workOrderList");
     }
 
-    @RequestMapping(value = "/toProviewPage", method = RequestMethod.GET)
-    public ModelAndView toPreview(){
+    @RequestMapping(value = "/detail/{workOrderId}", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonV2 queryWorkOderDetailById(@PathVariable("workOrderId") int workOrderId){
         WorkOrderVo workOrderVo = new WorkOrderVo();
         workOrderVo.setId(1);
         workOrderVo.setName("xxx");
-        workOrderVo.setPriority(1);
+        workOrderVo.setPriority(2);
         workOrderVo.setDetail("xxxx");
-        return new ModelAndView("workOrderPreview", "workOrderVo", workOrderVo);
+        return new JsonV2<Object>(0, "ok", workOrderVo);
     }
 
     @RequestMapping(value = "/preview/{workOrderId}", method = RequestMethod.GET)
+    public ModelAndView preview(@PathVariable("workOrderId") int workOrderId) {
+        return new ModelAndView("workOrderPreview");
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ModelAndView toListPage(@RequestParam(value = "limit", required = false) Integer limit,
+                                 @RequestParam(value = "offset", required = false) Integer offset){
+        return new ModelAndView("workOrderList");
+    }
+
+    @RequestMapping(value = "/list/data", method = RequestMethod.GET)
     @ResponseBody
-    public JsonV2 preview(@PathVariable("workOrderId") int workOrderId) {
+    public JsonV2 queryAllData(@RequestParam(value = "limit", required = false) Integer limit,
+                                 @RequestParam(value = "offset", required = false) Integer offset){
         WorkOrderVo workOrderVo = new WorkOrderVo();
         workOrderVo.setId(1);
         workOrderVo.setName("xxx");
@@ -77,12 +90,5 @@ public class WorkOrderController {
         workOrderVo.setDetail("xxxx");
         return new JsonV2<Object>(0, "ok", workOrderVo);
     }
-
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ModelAndView queryAll(@RequestParam(value = "limit", required = false) Integer limit,
-                                 @RequestParam(value = "offset", required = false) Integer offset){
-        return new ModelAndView("workOrderList");
-    }
-
 
 }

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +13,29 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../css/template.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var workorderId = window.location.pathname.split("/").reverse()[0];
+            renderPage(workorderId);
+        })
+
+        function renderPage(workorderId) {
+            $.ajax({
+                type : "get",
+                dataType : "json",
+                url : "/workorder/detail/" + workorderId,
+                success : function (data) {
+                    console.log(data)
+                    $("#name").val(data.data.id);
+                    $("#priority").val(data.data.priority);
+                    $("#detail").val(data.data.detail);
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -46,13 +67,13 @@
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" value="<c:out value='${workOrderVo.name}'/>" readonly="true">
+                    <input type="text" class="form-control" id="name" name="name" disabled>
                 </div>
             </div>
             <div class="form-group">
                 <label for="priority" class="col-sm-2 control-label">Priority</label>
                 <div class="col-sm-10">
-                    <select class="form-control" id="priority" name="priority" readonly="true">
+                    <select class="form-control" id="priority" name="priority" disabled>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -64,13 +85,7 @@
             <div class="form-group">
                 <label for="detail" class="col-sm-2 control-label">Detail</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="5" id="detail" name="detail" value="${workOrderVo.detail}" readonly="true"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <textarea class="form-control" rows="5" id="detail" name="detail" value="${workOrderVo.detail}" disabled></textarea>
                 </div>
             </div>
         </form>
@@ -79,7 +94,5 @@
 </div><!-- /.container -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../js/bootstrap.js"></script>
 </body>
 </html>

@@ -13,7 +13,27 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../css/template.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
 </head>
+
+<script>
+    $( document ).ready(function() {
+        $.ajax({
+            type : "get",
+            dataType : "json",
+            url : "/workorder/list/data",
+            success : function(data){
+                console.log(data)
+                $("tbody").append("<tr><td>" + data.data.id +  "</td><td>" + data.data.name + "</td><td>"
+                        + data.data.priority + "</td><td><a href=" + "/workorder/preview/" + data.data.id + ">preview</a></td></tr>")
+            },
+            error : function () {
+                alert("request workorder list data error! please contact system admin")
+            }
+        });
+    });
+</script>
 
 <body>
 
@@ -44,29 +64,16 @@
                 <tr>
                     <th style="text-align: center">ID</th>
                     <th style="text-align: center">Name</th>
-                    <th style="text-align: center">CreateTime</th>
-                    <th style="text-align: center">Creator</th>
-                    <th style="text-align: center">Status</th>
-                    <th style="text-align: center">Detail</th>
+                    <th style="text-align: center">Priority</th>
+                    <th style="text-align: center">Prevoew</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><a href="/workorder/toProviewPage">asd</a></td>
-                </tr>
             </tbody>
         </table>
     </div>
 
 </div><!-- /.container -->
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../js/bootstrap.js"></script>
 </body>
 </html>
